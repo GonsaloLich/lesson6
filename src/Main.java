@@ -6,58 +6,59 @@ public class Main {
         task2();
         task3();
         task4();
+    }
 
+    public static int[] generateRandomArray() {
+        java.util.Random random = new java.util.Random();
+        int[] arr = new int[30];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = random.nextInt(100_000) + 100_000;
+        }
+        return arr;
     }
     public static void task1() {
-        System.out.println("Задача 1");
-        int[] weight = new int[3] ;
-        weight[0] = 1;
-        weight[1] = 2;
-        weight[2] = 3;
-        float[] number = new float[3];
-        number[0] = 1.57f;
-        number[1] = 7.654f;
-        number[2] = 9.986f;
-        System.out.println(Arrays.toString(number));
-        double[] pin = new double[] {1, 9, 1.234, 2.345};
-        pin[0] = 1;
-        pin[1] = 9;
-        pin[2] = 1.234;
-        pin[3] = 2.345;
-        System.out.println(Arrays.toString(pin));
-
+        int[] arr = generateRandomArray();
+        int sum = 0;
+        for (int index = 0; index < arr.length; index++) {
+            sum = sum + arr[index];
+        }
+        System.out.println("Сумма трат за месяц составила " + sum + " рублей");
     }
-
     public static void task2() {
-        System.out.println("Задача 2");
-        int[] weight = {1, 2, 3};
-        System.out.println(Arrays.toString(weight));
-        float[] number = {1.57f, 7.654f, 9.986f};
-        System.out.println(Arrays.toString(number));
-        double[] pin = {1, 9, 1.234, 2.345};
-        System.out.println(Arrays.toString(pin));
-
-    }
-    public static void task3() {
-        System.out.println("Задача 3");
-        int[] weight = new int[3];
-        weight[0] = 3;
-        weight[1] = 2;
-        weight[2] = 1;
-        System.out.println(Arrays.toString(weight));
-        float[] number = new float[] {9.986f, 7.654f, 1.57f};
-        System.out.println(Arrays.toString(number));
-        double[] pin = new double[] {2.345, 1.234, 9, 1};
-        System.out.println(Arrays.toString(pin));
-    }
-    public static void task4() {
-        System.out.println("Задача 4");
-        int[] arr = {1, 2, 3,};
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] % 2 != 0) {
-                arr[i] = arr[i] + 1;
-                System.out.println(Arrays.toString(arr));
+        int[] arr = generateRandomArray();
+        int expenseMax = 1;
+        int expenseMin = 200000;
+        for (final int current : arr) {
+            if (current > expenseMax) {
+                expenseMax = current;
+            }
+            if (current < expenseMin) {
+                expenseMin  = current;
             }
         }
+        System.out.println("Минимальная сумма трат за день составила " + expenseMin + " рублей");
+        System.out.println("Максимальная сумма трат за день составила " + expenseMax + " рублей");
+    }
+    public static void task3() {
+        int[] arr = generateRandomArray();
+        int sum = 0;
+        double sumAverage = 0;
+        for (int index = 0; index < arr.length; index++) {
+            sum = (sum + arr[index]);
+            sumAverage = sum / 30;
+
+        }
+        System.out.println(sumAverage);
+
+    }
+    public static void task4() {
+        char[] reverseFullName = {'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
+        int i;
+        for ( i = reverseFullName.length - 1; i >= 0; i--) {
+            System.out.println(reverseFullName[i]);
+
+        }
+
+
     }
 }

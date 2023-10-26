@@ -27,3 +27,6 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+/lesson6.iml
+/.idea/
+/out/
